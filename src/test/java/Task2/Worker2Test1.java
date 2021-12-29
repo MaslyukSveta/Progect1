@@ -3,11 +3,9 @@ package Task2;
 
 import org.junit.jupiter.api.Test;
 
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Worker2Test {
+class Worker2Test1 {
 
     Worker2 workerTask2 = new Worker2();
 
@@ -195,87 +193,7 @@ class Worker2Test {
 
     }
 
-    /**
-     * Класс эквивалентности когда номер совпадает с колличеством этажей в доме и колличество квартир на этаже равно 1
-     * результат второе первое и второе значение равно друг другу
-     */
-    @Test
-    public void test8() {
 
-        //region граница класса эквивалентности
-        testPrint("1 1 1", 1, 1, 1);
-
-        testPrint("Incorrect data", 0, 1, 0);
-        testPrint("2 2 1", 2, 1, 2);
-        //endregion
-
-        //region граница класса эквивалентности
-        testPrint("2147483647 2147483647 1", maxValue, 1, maxValue);
-
-        testPrint("2147483646 2147483646 1", maxValue - 1, 1, maxValue - 1);
-
-        testPrint("Incorrect data", maxValue  + 1, 1, maxValue + 1);
-        //endregion
-
-        //region значение внутрикласса эквивалентности
-        testPrint("2 2 1", 2, 1, 2);
-        testPrint("3 3 1", 3, 1, 3);
-        testPrint("4 4 1", 4, 1, 4);
-        testPrint("5 5 1", 5, 1, 5);
-
-        testPrint("23 23 1", 23, 1, 23);
-        testPrint("498 498 1", 498, 1, 498);
-        testPrint("2034 2034 1", 2034, 1, 2034);
-        testPrint("23040 23040 1", 23040, 1, 23040);
-        testPrint("230402 230402 1", 230402, 1, 230402);
-        testPrint("1203492 1203492 1", 1203492, 1, 1203492);
-        testPrint("23999898 23999898 1", 23999898, 1, 23999898);
-        testPrint("239482938 239482938 1", 239482938, 1, 239482938);
-        //endregion
-
-    }
-
-
-    /**
-     * Класс эквивалентности
-     *
-     */
-    @Test
-    public void test9() {
-
-
-        //region граница класса эквивалентности
-        testPrint("1 1 1", 1, 1, 1);
-
-        testPrint("Incorrect data", 0, 1, 0);
-        testPrint("2 1 2", 1, 1, 2);
-        //endregion
-
-        //region граница класса эквивалентности
-        testPrint("2147483647 1 2147483647", 1, 1, maxValue);
-
-        testPrint("2147483646 1 2147483646", 1, 1, maxValue - 1);
-
-        testPrint("Incorrect data", 1, 1, maxValue + 1);
-        //endregion
-
-        //region значение внутрикласса эквивалентности
-        testPrint("4 1 4", 1, 1, 4);
-        testPrint("3 1 3", 1, 1, 3);
-        testPrint("4 1 4", 1, 1, 4);
-        testPrint("5 1 5", 1, 1, 5);
-
-        testPrint("23 1 23", 1, 1, 23);
-        testPrint("498 1 498", 1, 1, 498);
-        testPrint("2034 1 2034", 1, 1, 2034);
-        testPrint("23040 1 23040", 1, 1, 23040);
-        testPrint("230402 1 230402", 1, 1, 230402);
-        testPrint("1203492 1 1203492", 1, 1, 1203492);
-        testPrint("23999898 1 23999898", 1, 1, 23999898);
-        testPrint("239482938 1 239482938", 1, 1, 239482938);
-        //endregion
-
-    }
 
 
 

@@ -85,7 +85,8 @@ public class Worker2 {
 
         String result = "";
 
-        if (correctDate(countFloor, countApartments, numberApartments)) {
+        if (correctDate(countFloor, countApartments, numberApartments) && (entrance(countFloor, countApartments, numberApartments) != 0)) {
+
             result = result + numberApartments + " "
                     + floorSearch(countFloor, countApartments, numberApartments) + " " + entrance(countFloor,  countApartments,  numberApartments);
 

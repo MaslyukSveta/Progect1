@@ -6,11 +6,11 @@ import static java.lang.StrictMath.abs;
 
 public class Worker3 {
 
+
     private static int gcd(int x, int y) {
 
         return Math.abs((y == 0) ? x : gcd(y, x % y));
     }
-
 
 
     public static int gcd(int numbers1, int numbers2, int numbers3, int numbers4) {

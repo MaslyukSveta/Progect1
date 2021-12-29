@@ -10,7 +10,7 @@ class Worker5Test {
 
     Worker5 worker5 = new Worker5();
 
-    public void testPrintDayOfWeek(String test,int day, int month, int year) throws DateException {
+    public void testPrintDayOfWeek(String test,int day, int month, int year) {
 
         String s = worker5.printDayOfWeek(day, month, year);
 
@@ -23,10 +23,13 @@ class Worker5Test {
      * границы области определения
      */
     @Test
-    void test1() throws DateException {
+    void test1() {
 
             //region граничные значения
+
+
             testPrintDayOfWeek("Понедельник", 1, 1, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 4, 1);
 
             testPrintDayOfWeek("Incorrect date", 0, 1, 1);
 
@@ -57,12 +60,12 @@ class Worker5Test {
 
             //region граничные значения
             testPrintDayOfWeek("Пятница", 1, 12, 7);
-/**
 
-            testPrintDayOfWeek("", 0, 12, 7);
-            testPrintDayOfWeek("", 1, 13, 7);
-            testPrintDayOfWeek("", 1, 12, 8);
- */
+
+            testPrintDayOfWeek("Incorrect date", 0, 12, 7);
+            testPrintDayOfWeek("Incorrect date", 1, 13, 7);
+            testPrintDayOfWeek("Incorrect date", 1, 12, 8);
+
             testPrintDayOfWeek("Суббота", 2, 12, 7);
             testPrintDayOfWeek("Среда", 1, 11, 7);
             testPrintDayOfWeek("Четверг", 1, 12, 6);
@@ -81,11 +84,11 @@ class Worker5Test {
 
             //region граничные значения
             testPrintDayOfWeek("Воскресенье", 1, 1, 7);
-/**
-            testPrintDayOfWeek("", 2, 0, 7);
-            testPrintDayOfWeek("", 0, 2, 7);
-            testPrintDayOfWeek("", 1, 1, 8);
- */
+
+            testPrintDayOfWeek("Incorrect date", 2, 0, 7);
+            testPrintDayOfWeek("Incorrect date", 0, 2, 7);
+            testPrintDayOfWeek("Incorrect date", 1, 1, 8);
+
             testPrintDayOfWeek("Понедельник", 2, 1, 7);
             testPrintDayOfWeek("Среда", 1, 2, 7);
             testPrintDayOfWeek("Суббота", 1, 1, 6);
@@ -135,19 +138,18 @@ class Worker5Test {
     /**
      * 31
      */
+    /**
     @Test
-    void test2(){
-
-        DateException thrown = Assertions.assertThrows(DateException.class, () -> {
+    void test2() throws DateException {
 
 
             //region граничные значения
             testPrintDayOfWeek("Воскресенье", 31, 12, 7);
 
-            testPrintDayOfWeek("", 32, 12, 7);
-            testPrintDayOfWeek("", 31, 13, 7);
-            testPrintDayOfWeek("", 31, 12, 8);
-            testPrintDayOfWeek("", 31, 11, 7);
+            testPrintDayOfWeek("Incorrect date", 32, 12, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 13, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 12, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 11, 7);
 
             testPrintDayOfWeek("Суббота", 30, 12, 7);
             testPrintDayOfWeek("Суббота", 31, 12, 6);
@@ -155,10 +157,10 @@ class Worker5Test {
             //region граничные значения
             testPrintDayOfWeek("Понедельник", 31, 12, 1);
 
-            testPrintDayOfWeek("", 32, 12, 1);
-            testPrintDayOfWeek("", 31, 13, 1);
-            testPrintDayOfWeek("", 31, 12, 0);
-            testPrintDayOfWeek("", 31, 11, 1);
+            testPrintDayOfWeek("Incorrect date", 32, 12, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 13, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 12, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 11, 1);
 
             testPrintDayOfWeek("Воскресенье", 30, 12, 1);
             testPrintDayOfWeek("Вторник", 31, 12, 2);
@@ -166,85 +168,85 @@ class Worker5Test {
             //endregion
 
             //region граничные значения
-            testPrintDayOfWeek("Воскресенье", 31, 10, 7);
+            testPrintDayOfWeek("Вторник", 31, 10, 7);
 
-            testPrintDayOfWeek("", 32, 10, 7);
-            testPrintDayOfWeek("", 31, 11, 7);
-            testPrintDayOfWeek("", 31, 10, 8);
-            testPrintDayOfWeek("", 31, 9, 7);
+            testPrintDayOfWeek("Incorrect date", 32, 10, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 11, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 10, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 9, 7);
 
-            testPrintDayOfWeek("Суббота", 30, 10, 7);
-            testPrintDayOfWeek("Суббота", 31, 10, 6);
+            testPrintDayOfWeek("Понедельник", 30, 10, 7);
+            testPrintDayOfWeek("Понедельник", 31, 10, 6);
             //endregion
             //region граничные значения
-            testPrintDayOfWeek("Понедельник", 31, 10, 1);
+            testPrintDayOfWeek("Среда", 31, 10, 1);
 
-            testPrintDayOfWeek("", 32, 10, 1);
-            testPrintDayOfWeek("", 31, 11, 1);
-            testPrintDayOfWeek("", 31, 10, 0);
-            testPrintDayOfWeek("", 31, 9, 1);
+            testPrintDayOfWeek("Incorrect date", 32, 10, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 11, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 10, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 9, 1);
 
-            testPrintDayOfWeek("Воскресенье", 30, 10, 1);
-            testPrintDayOfWeek("Вторник", 31, 10, 2);
-
-            //endregion
-
-            //region граничные значения
-            testPrintDayOfWeek("Воскресенье", 31, 8, 7);
-
-            testPrintDayOfWeek("", 32, 8, 7);
-            testPrintDayOfWeek("", 31, 9, 7);
-            testPrintDayOfWeek("", 31, 8, 8);
-
-            testPrintDayOfWeek("Суббота", 30, 8, 7);
-            testPrintDayOfWeek("Суббота", 31, 8, 6);
-            testPrintDayOfWeek("Суббота", 31, 7, 7);
-            //endregion
-            //region граничные значения
-            testPrintDayOfWeek("Понедельник", 31, 8, 1);
-
-            testPrintDayOfWeek("", 32, 8, 1);
-            testPrintDayOfWeek("", 31, 8, 0);
-            testPrintDayOfWeek("", 31, 9, 1);
-
-            testPrintDayOfWeek("Воскресенье", 30, 8, 1);
-            testPrintDayOfWeek("Воскресенье", 30, 7, 1);
-            testPrintDayOfWeek("Вторник", 31, 8, 2);
+            testPrintDayOfWeek("Вторник", 30, 10, 1);
+            testPrintDayOfWeek("Четверг", 31, 10, 2);
 
             //endregion
 
             //region граничные значения
-            testPrintDayOfWeek("Понедельник", 31, 7, 1);
+            testPrintDayOfWeek("Четверг", 31, 8, 7);
 
-            testPrintDayOfWeek("", 32, 7, 1);
-            testPrintDayOfWeek("", 31, 7, 0);
-            testPrintDayOfWeek("", 31, 6, 1);
+            testPrintDayOfWeek("Incorrect date", 32, 8, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 9, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 8, 8);
+
+            testPrintDayOfWeek("Среда", 30, 8, 7);
+            testPrintDayOfWeek("Среда", 31, 8, 6);
+            testPrintDayOfWeek("Понедельник", 31, 7, 7);
+            //endregion
+            //region граничные значения
+            testPrintDayOfWeek("Пятница", 31, 8, 1);
+
+            testPrintDayOfWeek("Incorrect date", 32, 8, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 8, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 9, 1);
+
+            testPrintDayOfWeek("Четверг", 30, 8, 1);
+            testPrintDayOfWeek("Понедельник", 30, 7, 1);
+            testPrintDayOfWeek("Суббота", 31, 8, 2);
+
+            //endregion
+
+            //region граничные значения
+            testPrintDayOfWeek("Вторник", 31, 7, 1);
+
+            testPrintDayOfWeek("Incorrect date", 32, 7, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 7, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 6, 1);
 
 
-            testPrintDayOfWeek("Воскресенье", 31, 8, 1);
+            testPrintDayOfWeek("Пятница", 31, 8, 1);
             testPrintDayOfWeek("Воскресенье", 30, 12, 1);
             testPrintDayOfWeek("Вторник", 31, 12, 2);
 
             //endregion
             //region граничные значения
-            testPrintDayOfWeek("Воскресенье", 31, 7, 7);
+            testPrintDayOfWeek("Понедельник", 31, 7, 7);
 
-            testPrintDayOfWeek("", 32, 7, 7);
-            testPrintDayOfWeek("", 31, 7, 8);
-            testPrintDayOfWeek("", 31, 6, 7);
+            testPrintDayOfWeek("Incorrect date", 32, 7, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 7, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 6, 7);
 
             testPrintDayOfWeek("Суббота", 31, 7, 7);
             testPrintDayOfWeek("Суббота", 30, 7, 7);
             testPrintDayOfWeek("Суббота", 31, 8, 6);
             //endregion
-
+   /**
             //region граничные значения
             testPrintDayOfWeek("Понедельник", 31, 5, 1);
 
-            testPrintDayOfWeek("", 32, 5, 1);
-            testPrintDayOfWeek("", 31, 6, 1);
-            testPrintDayOfWeek("", 31, 5, 0);
-            testPrintDayOfWeek("", 31, 4, 1);
+            testPrintDayOfWeek("Incorrect date", 32, 5, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 6, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 5, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 4, 1);
 
 
             testPrintDayOfWeek("Воскресенье", 30, 5, 1);
@@ -254,9 +256,9 @@ class Worker5Test {
             //region граничные значения
             testPrintDayOfWeek("Воскресенье", 31, 5, 7);
 
-            testPrintDayOfWeek("", 32, 5, 7);
-            testPrintDayOfWeek("", 31, 6, 7);
-            testPrintDayOfWeek("", 31, 5, 8);
+            testPrintDayOfWeek("Incorrect date", 32, 5, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 6, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 5, 8);
             testPrintDayOfWeek("Четверг", 31, 4, 7);
 
             testPrintDayOfWeek("Суббота", 30, 5, 7);
@@ -266,10 +268,10 @@ class Worker5Test {
             //region граничные значения
             testPrintDayOfWeek("Понедельник", 31, 3, 1);
 
-            testPrintDayOfWeek("", 32, 3, 1);
-            testPrintDayOfWeek("", 31, 4, 1);
-            testPrintDayOfWeek("", 31, 3, 0);
-            testPrintDayOfWeek("", 31, 2, 1);
+            testPrintDayOfWeek("Incorrect date", 32, 3, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 4, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 3, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 2, 1);
 
             testPrintDayOfWeek("Воскресенье", 30, 3, 1);
             testPrintDayOfWeek("Вторник", 31, 3, 2);
@@ -278,10 +280,10 @@ class Worker5Test {
             //region граничные значения
             testPrintDayOfWeek("Воскресенье", 31, 3, 7);
 
-            testPrintDayOfWeek("", 32, 3, 7);
-            testPrintDayOfWeek("", 31, 4, 7);
-            testPrintDayOfWeek("", 31, 3, 8);
-            testPrintDayOfWeek("", 31, 2, 7);
+            testPrintDayOfWeek("Incorrect date", 32, 3, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 4, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 3, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 2, 7);
 
             testPrintDayOfWeek("Суббота", 30, 3, 7);
             testPrintDayOfWeek("Суббота", 31, 3, 6);
@@ -290,10 +292,10 @@ class Worker5Test {
             //region граничные значения
             testPrintDayOfWeek("Понедельник", 31, 1, 1);
 
-            testPrintDayOfWeek("", 32, 1, 1);
-            testPrintDayOfWeek("", 31, 2, 1);
-            testPrintDayOfWeek("", 31, 1, 0);
-            testPrintDayOfWeek("", 31, 0, 1);
+            testPrintDayOfWeek("Incorrect date", 32, 1, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 2, 1);
+            testPrintDayOfWeek("Incorrect date", 31, 1, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 0, 1);
 
             testPrintDayOfWeek("Воскресенье", 30, 1, 1);
             testPrintDayOfWeek("Вторник", 31, 1, 2);
@@ -302,10 +304,10 @@ class Worker5Test {
             //region граничные значения
             testPrintDayOfWeek("Воскресенье", 31, 1, 7);
 
-            testPrintDayOfWeek("", 32, 1, 7);
-            testPrintDayOfWeek("", 31, 2, 7);
-            testPrintDayOfWeek("", 31, 1, 8);
-            testPrintDayOfWeek("", 31, 0, 7);
+            testPrintDayOfWeek("Incorrect date", 32, 1, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 2, 7);
+            testPrintDayOfWeek("Incorrect date", 31, 1, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 0, 7);
 
             testPrintDayOfWeek("Суббота", 30, 1, 7);
             testPrintDayOfWeek("Суббота", 31, 1, 6);
@@ -320,20 +322,18 @@ class Worker5Test {
             testPrintDayOfWeek("Воскресенье", 31, 12, 3);
 
 
-        });
 
-        Assertions.assertEquals("Incorrect date", thrown.getMessage());
 
     }
-
+*/
     /**
      *
      */
     @Test
-    void test3() throws DateException {
+    void test3() {
 
 
-        testPrintDayOfWeek("", 29, 2, 5);
+        testPrintDayOfWeek("Incorrect date", 29, 2, 5);
 
 
         //region граничные значения класса
@@ -419,10 +419,10 @@ class Worker5Test {
     /**
      *   Проверка, колличество дней в месяце 30
      */
+    /**
     @Test
-    void test4()  {
+    void test4() throws DateException {
 
-        DateException thrown = Assertions.assertThrows(DateException.class, () -> {
 
 
             //region граничные значения класса
@@ -433,8 +433,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 3, 7);
             testPrintDayOfWeek("Суббота", 30, 5, 7);
 
-            testPrintDayOfWeek("", 31, 4, 7);
-            testPrintDayOfWeek("", 30, 4, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 4, 7);
+            testPrintDayOfWeek("Incorrect date", 30, 4, 8);
             //endregion
             //region граничные значения класса
             testPrintDayOfWeek("Воскресенье", 30, 4, 1);
@@ -444,8 +444,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 3, 1);
             testPrintDayOfWeek("Суббота", 30, 5, 1);
 
-            testPrintDayOfWeek("", 31, 4, 1);
-            testPrintDayOfWeek("", 30, 4, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 4, 1);
+            testPrintDayOfWeek("Incorrect date", 30, 4, 0);
             //endregion
 
 
@@ -458,8 +458,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 7, 7);
             testPrintDayOfWeek("Суббота", 30, 5, 7);
 
-            testPrintDayOfWeek("", 31, 6, 7);
-            testPrintDayOfWeek("", 30, 6, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 6, 7);
+            testPrintDayOfWeek("Incorrect date", 30, 6, 8);
             //endregion
             //region граничные значения класса
             testPrintDayOfWeek("Воскресенье", 30, 6, 1);
@@ -469,8 +469,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 7, 1);
             testPrintDayOfWeek("Суббота", 30, 5, 1);
 
-            testPrintDayOfWeek("", 31, 6, 1);
-            testPrintDayOfWeek("", 30, 6, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 6, 1);
+            testPrintDayOfWeek("Incorrect date", 30, 6, 0);
             //endregion
 
 
@@ -483,8 +483,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 8, 7);
             testPrintDayOfWeek("Суббота", 30, 10, 7);
 
-            testPrintDayOfWeek("", 31, 9, 7);
-            testPrintDayOfWeek("", 30, 9, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 9, 7);
+            testPrintDayOfWeek("Incorrect date", 30, 9, 8);
             //endregion
             //region граничные значения класса
             testPrintDayOfWeek("Воскресенье", 30, 9, 1);
@@ -494,8 +494,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 8, 1);
             testPrintDayOfWeek("Суббота", 30, 10, 1);
 
-            testPrintDayOfWeek("", 31, 9, 1);
-            testPrintDayOfWeek("", 30, 9, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 9, 1);
+            testPrintDayOfWeek("Incorrect date", 30, 9, 0);
             //endregion
 
 
@@ -508,8 +508,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 10, 7);
             testPrintDayOfWeek("Суббота", 30, 12, 7);
 
-            testPrintDayOfWeek("", 31, 11, 7);
-            testPrintDayOfWeek("", 30, 1, 8);
+            testPrintDayOfWeek("Incorrect date", 31, 11, 7);
+            testPrintDayOfWeek("v", 30, 1, 8);
             //endregion
             //region граничные значения класса
             testPrintDayOfWeek("Воскресенье", 30, 11, 1);
@@ -519,8 +519,8 @@ class Worker5Test {
             testPrintDayOfWeek("Суббота", 30, 10, 1);
             testPrintDayOfWeek("Суббота", 30, 12, 1);
 
-            testPrintDayOfWeek("", 31, 11, 1);
-            testPrintDayOfWeek("", 30, 11, 0);
+            testPrintDayOfWeek("Incorrect date", 31, 11, 1);
+            testPrintDayOfWeek("Incorrect date", 30, 11, 0);
             //endregion
 
 
@@ -575,28 +575,25 @@ class Worker5Test {
             testPrintDayOfWeek("Четверг", 21, 9, 7);
             testPrintDayOfWeek("Суббота", 18, 11, 7);
             //endregion
-            });
 
-        Assertions.assertEquals("Incorrect date", thrown.getMessage());
+
 
     }
     /**
      *   Проверка, колличество дней в месяце 28
      */
-
+/**
     @Test
     void test5() throws DateException {
 
-
-        DateException thrown = Assertions.assertThrows(DateException.class, () -> {
 
 
             //region граничные
 
             testPrintDayOfWeek("Среда", 28, 2, 1);
 
-            testPrintDayOfWeek("", 29, 2, 1);
-            testPrintDayOfWeek("", 28, 2, 0);
+            testPrintDayOfWeek("Incorrect date", 29, 2, 1);
+            testPrintDayOfWeek("Incorrect date", 28, 2, 0);
 
             testPrintDayOfWeek("Вторник", 28, 2, 2);
             testPrintDayOfWeek("Вторник", 27, 2, 1);
@@ -608,8 +605,8 @@ class Worker5Test {
 
             testPrintDayOfWeek("Вторник", 28, 2, 7);
 
-            testPrintDayOfWeek("", 29, 2, 7);
-            testPrintDayOfWeek("", 28, 2, 8);
+            testPrintDayOfWeek("Incorrect date", 29, 2, 7);
+            testPrintDayOfWeek("Incorrect date", 28, 2, 8);
 
             testPrintDayOfWeek("Вторник", 28, 2, 6);
             testPrintDayOfWeek("Вторник", 27, 2, 7);
@@ -633,16 +630,14 @@ class Worker5Test {
             testPrintDayOfWeek("Понедельник", 7, 2, 6);
             testPrintDayOfWeek("Суббота", 22, 2, 3);
             //endregion
-            });
 
-            Assertions.assertEquals("Incorrect date", thrown.getMessage());
     }
 
     /**
      * предметная область
      */
     @Test
-    void test6() throws DateException {
+    void test6() {
 
         testPrintDayOfWeek("Пятница", 30, 6, 7);
         testPrintDayOfWeek("Суббота", 30, 9, 7);
@@ -703,7 +698,7 @@ class Worker5Test {
      * на реализацию
      */
     @Test
-    void test7() throws DateException {
+    void test7() {
 
         testPrintDayOfWeek("Воскресенье", 5, 2, 7);
         testPrintDayOfWeek("Четверг", 11, 5, 7);
@@ -722,7 +717,7 @@ class Worker5Test {
      * случайные значения
      */
     @Test
-    void test8() throws DateException {
+    void test8() {
         testPrintDayOfWeek("Пятница", 1, 1, 5);
         testPrintDayOfWeek("Четверг", 7, 1, 5);
         testPrintDayOfWeek("Понедельник", 8, 3, 5);
@@ -741,7 +736,7 @@ class Worker5Test {
      * особые значения
      */
     @Test
-    void test9() throws DateException{
+    void test9() {
 
         testPrintDayOfWeek("Пятница", 1, 1, 5);
         testPrintDayOfWeek("Четверг", 7, 1, 5);
@@ -763,7 +758,7 @@ class Worker5Test {
      * класс эквевалентности Monday
      */
     @Test
-    void testClassMo() throws DateException {
+    void testClassMo() {
 
         testPrintDayOfWeek("Понедельник", 1, 1, 1);
         testPrintDayOfWeek("Понедельник", 8, 1, 1);
@@ -823,7 +818,7 @@ class Worker5Test {
      * класс эквевалентности Tuesday
      */
     @Test
-    void testClassTu() throws DateException {
+    void testClassTu() {
 
 
         testPrintDayOfWeek("Вторник", 2, 1, 1);
@@ -883,7 +878,7 @@ class Worker5Test {
      * класс эквевалентности Wednesday
      */
     @Test
-    void testClassWe() throws DateException {
+    void testClassWe() {
         testPrintDayOfWeek("Среда", 3, 1, 1);
         testPrintDayOfWeek("Среда", 10, 1, 1);
 
@@ -937,7 +932,7 @@ class Worker5Test {
      * класс эквевалентности Thursday
      */
     @Test
-    void testClassTh() throws DateException {
+    void testClassTh() {
 
         testPrintDayOfWeek("Четверг", 4, 1, 1);
         testPrintDayOfWeek("Четверг", 11, 1, 1);
@@ -992,7 +987,7 @@ class Worker5Test {
      * класс эквевалентности Friday
      */
     @Test
-    void testClassFr() throws DateException {
+    void testClassFr() {
 
         testPrintDayOfWeek("Пятница", 5, 1, 1);
         testPrintDayOfWeek("Пятница", 12, 1, 1);
@@ -1048,7 +1043,7 @@ class Worker5Test {
      * класс эквевалентности Saturday
      */
     @Test
-    void testClassSa() throws DateException {
+    void testClassSa() {
 
         testPrintDayOfWeek("Суббота", 6, 1, 1);
         testPrintDayOfWeek("Суббота", 13, 1, 1);
@@ -1104,7 +1099,7 @@ class Worker5Test {
      * класс эквевалентности Sunday
      */
     @Test
-    void testClassSu() throws DateException {
+    void testClassSu() {
 
         testPrintDayOfWeek("Воскресенье", 7, 1, 1);
         testPrintDayOfWeek("Воскресенье", 14, 1, 1);

@@ -3,47 +3,48 @@ package Task5;
 
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class Worker5 {
 
-    public int dayOfWeek1(int day, int month, int year) throws DateException{
 
-        int s = 0;
+    public Object printDayOfWeek;
 
-        if(year < 1 || year > 7 || month < 1 || month > 12 || day < 1 || day > 31) {
-            s = 7;
-        } else
-        if( month == 2 && day > 28) {
-            s = 7;
-        }else
-        if( (month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+    public int dayOfWeek1(int day, int month, int year) {
+
+        int s;
+        int[] M = {6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+
+        if( aBoolean(day, month,year)) {
             s = 7;
         }else {
-            int[] M = {6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
-
             if (year == 7) {
                 year = 0;
             }
             s = ((day + M[(month - 1)] + year) % 7);
         }
-        return  s;
+        return s;
 
     }
 
-    public boolean aBoolean(int day, int month, int year) throws DateException{
+
+    public boolean aBoolean(int day, int month, int year) {
+
+        boolean data = false;
 
         if(year < 1 || year > 7 || month < 1 || month > 12 || day < 1 || day > 31) {
-            return false;
+            data = true;
+        } else if( month == 2 && day > 28) {
+            data = true;
+        }else if( (month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+            data = true;
         }
-        if( month == 2 && day > 28) {
-            return false;
-        }
-        if( (month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
-            return false;
-        }
-       return true;
+       return data;
     }
 
-    public String printDayOfWeek(int day, int month, int year) throws DateException {
+
+    public String printDayOfWeek(int day, int month, int year) {
 
         ArrayList<String> S = new ArrayList<>();
 
@@ -60,29 +61,3 @@ public class Worker5 {
     }
 
 }
-class   DateException extends Exception {
-
-    private int day;
-    private int month;
-    private int year;
-
-    public int getDay(){
-        return day;
-    }
-    public int getMonth(){
-        return month;
-    }
-    public int getYear(){
-        return year;
-    }
-
-
-    public DateException(String message, int d, int m, int y){
-        super(message);
-        day = d;
-        month = m;
-        year = y;
-    }
-
-}
-
